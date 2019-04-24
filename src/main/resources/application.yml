@@ -1,0 +1,36 @@
+
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  #  datasource:
+#    url: jdbc:postgresql://localhost:5432/concerto
+#    username: concerto
+#    password: concerto
+#    hikari:
+#      leak-detection-threshold: 2000
+#      minimum-idle: 5
+#      maximum-pool-size: 10
+#      connection-timeout: 10000
+#      idle-timeout: 20000
+#      max-lifetime: 1800000
+  flyway:
+    enabled: false
+  #    schemas: public
+#    baseline-on-migrate: true
+  jpa:
+#    hibernate:
+#      ddl-auto: validate
+#    generate-ddl: false
+#    show-sql: false
+#    open-in-view: false
+#    database-platform: org.hibernate.dialect.PostgreSQL9Dialect
+    properties:
+      hibernate:
+        multiTenancy: DATABASE
+        tenant_identifier_resolver: ch.hcuge.demo.tenant.TenantIdentifierResolver
+        multi_tenant_connection_provider: ch.hcuge.demo.tenant.MultiTenantConnectionProviderImpl
+#        temp:
+#          use_jdbc_metadata_defaults: false
+#        jdbc:
+#          lob:
+#            non_contextual_creation: true

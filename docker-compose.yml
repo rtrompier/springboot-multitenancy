@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+
+  db-concerto:
+    image: postgres
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: concerto
+      POSTGRES_USER: concerto
+      POSTGRES_PASSWORD: concerto
+    volumes:
+    - ./data/init-concerto.sql:/docker-entrypoint-initdb.d/init.sql
+
+  db-greco:
+    image: postgres
+    ports:
+      - "5433:5432"
+    environment:
+      POSTGRES_DB: greco
+      POSTGRES_USER: greco
+      POSTGRES_PASSWORD: greco
+    volumes:
+    - ./data/init-greco.sql:/docker-entrypoint-initdb.d/init.sql
